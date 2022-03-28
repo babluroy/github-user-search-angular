@@ -1,0 +1,20 @@
+<div class="card card-user" *ngIf="user">
+    <div class="background bg-dark">
+        <img [src]="user.avatar_url" class="img-fluid rounded-circle profile-pic boder-2 border-white">
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">
+            {{user.name}}
+        </h5>
+        <div class="card-text mt-2">
+            Available for hire: {{user.hireable === null ? "Nope" : "Yes"}}
+        </div>
+        <div class="card-text mt-2">
+            Location: {{user.location}}
+        </div>
+        <div class="card-text mt-2">
+            Updated at: {{user.updated_at | date:"short"}}
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,21 @@
+<div class="container">
+    <form (ngSubmit)="handleFind()">
+        <div class="mb-3 mt-4">
+            <label for="exampleFormControlInput1" class="form-label">User Name</label>
+            <input type="text" [(ngModel)]="userName" name="userName" class="form-control" id="userName"
+                placeholder="Enter User Name. Eg: babluroy">
+        </div>
+        <button class="btn btn-primary mb-2">Find User</button>
+        <hr />
+    </form>
+    <div *ngIf="user">
+        <div class="row">
+            <div class="col-md-3 col-lg-3 col-sm-12">
+                <app-user-card [user]="user"></app-user-card>
+            </div>
+            <div class="col-md-9 col-lg-9 col-sm-12">
+                <app-repos [repoUrl]="user.repos_url"></app-repos>
+            </div>
+        </div>
+    </div>
+</div>
