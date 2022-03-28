@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { GithubService } from '../../services/github.service';
 import { User } from 'src/app/models/User';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private ref: ChangeDetectorRef,
-    private githubService: GithubService
+    private githubService: GithubService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {}
@@ -30,6 +32,7 @@ export class HomeComponent implements OnInit {
         (err) => {
           (this.user = null), (this.error = 'User not found');
           this.ref.detectChanges();
+          this.toastr.error('User not found');
         }
       );
     }
