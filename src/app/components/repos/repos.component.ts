@@ -22,13 +22,13 @@ export class ReposComponent implements OnInit, OnChanges {
     private ref: ChangeDetectorRef
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
+  
   ngOnChanges(): void {
     if (this.repoUrl) {
       this.githubService.getRepos(this.repoUrl).subscribe(
         (repos: any) => {
           this.repos = repos;
-
           this.ref.detectChanges();
         },
         (err) => {
